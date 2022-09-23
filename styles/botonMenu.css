@@ -1,0 +1,16 @@
+.botonMenu{
+    position:fixed;
+    top: 6px;
+    left: 10px;
+    width: 40px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.botonMenu:hover, .botonMenu:active{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 764px) {
+    .botonMenu{
+        width: 60px;
+    }
+}

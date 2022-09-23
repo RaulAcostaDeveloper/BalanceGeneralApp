@@ -1,0 +1,21 @@
+.resultadoCapital{
+    width: 100%;
+    height: 50vh;
+    color: rgba(44, 61, 83, 1);
+}
+.resultadoCapital .titulo, .resultadoCapital .cantidad{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.resultadoCapital .titulo{
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+.resultadoCapital .cantidad{
+    align-items: flex-start;
+    font-size: 25px;
+    color: rgb(255, 176, 6);
+}
