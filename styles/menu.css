@@ -7,30 +7,44 @@
     display: flex;
 }
 .menu .interior div{
-    height: 40px;
+    font-size: 18px;
+
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
+    border: 1px solid rgba(227, 240, 246, 1);
     cursor: pointer;
 }
 .menu .interior div:hover, .menu .interior div:active{
-    background-color: rgb(136, 177, 179);
-
+    background-color: rgba(227, 240, 246, 1);
+    color: rgba(44, 61, 83, 1);
 }
 .menu .interior, .menu .exterior{
     height: 100%;
     width: 50%;
 }
 .menu .interior{
+    border-right: 2px solid rgba(227, 240, 246, 1);
+    -webkit-box-shadow: 2px 0px 5px 1px rgba(255,255,255,1);
+    -moz-box-shadow: 2px 0px 5px 1px rgba(255,255,255,1);
+    box-shadow: 2px 0px 5px 1px rgba(255,255,255,1);
     background-color: rgba(106, 176, 178, 1);
 }
 .menu .exterior{
     cursor: pointer;
     transition: 0.4s;
-    background-color: rgba(106, 176, 178, 0.5);
+    background-color: rgba(106, 176, 178, 0.8);
 }
 .menu .exterior:hover, .menu .exterior:active {
-    background-color: rgba(106, 176, 178, 0.1);
-
+    background-color: rgba(106, 176, 178, 0.2);
+}
+/* Grande */
+@media (min-width: 764px) { 
+    .menu .interior{
+        width: 30%;
+    } 
+    .menu .exterior{
+        width: 70%;
+    }
 }

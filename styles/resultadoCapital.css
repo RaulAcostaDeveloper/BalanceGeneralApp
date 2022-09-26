@@ -12,6 +12,7 @@
 }
 .resultadoCapital .titulo{
     align-items: flex-end;
+    font-size: 22px;
     padding-bottom: 5px;
 }
 .resultadoCapital .cantidad{

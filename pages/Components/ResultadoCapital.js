@@ -1,8 +1,8 @@
-export const ResultadoCapital = () => {
+export const ResultadoCapital = ({titulo, cantidad}) => {
     return (
         <div className="resultadoCapital">
-            <div className="titulo">Capital</div>
-            <div className="cantidad">$898.00</div>
+            <div className="titulo">{titulo}</div>
+            <div className="cantidad">${cantidad}</div>
         </div>
     )
 }

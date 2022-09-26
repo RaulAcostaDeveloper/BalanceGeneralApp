@@ -1,7 +1,7 @@
-export const Header = () => {
+export const Header = ({children}) => {
     return ( 
         <div className="header">
-            Balance General
+            {children}
         </div>
     )
 }
