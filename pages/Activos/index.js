@@ -1,12 +1,12 @@
-import { Header } from "../Components/Header";
-import { BotonRegresar } from "../Components/BotonRegresar";
-import { BotonAniadir } from "../Components/BotonAniadir";
 import { useEffect, useState } from "react";
-import { FormularioAniadir } from "../Components/FormularioAniadir";
-import { FormularioEditar } from "../Components/FormularioEditar";
-import { ListaElementos } from "../Components/ListaElementos";
-import { ResultadoCapital } from "../Components/ResultadoCapital";
-import { Modal } from "../Components/Modal";
+import Header from "../Components/Header";
+import BotonRegresar from "../Components/BotonRegresar";
+import BotonAniadir from "../Components/BotonAniadir";
+import FormularioAniadir from "../Components/FormularioAniadir";
+import FormularioEditar from "../Components/FormularioEditar";
+import ListaElementos from "../Components/ListaElementos";
+import ResultadoCapital from "../Components/ResultadoCapital";
+import Modal from "../Components/Modal";
 const ActivosPage = () => {
     const [muestraForm, setMuestraForm] = useState(false);
     const [muestraFormEditar, setMuestraFormEditar] = useState(false);

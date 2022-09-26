@@ -1,4 +1,4 @@
-export const ResultadoCapital = ({titulo, cantidad}) => {
+const ResultadoCapital = ({titulo, cantidad}) => {
     return (
         <div className="resultadoCapital">
             <div className="titulo">{titulo}</div>
@@ -6,3 +6,4 @@ export const ResultadoCapital = ({titulo, cantidad}) => {
         </div>
     )
 }
+export default ResultadoCapital;

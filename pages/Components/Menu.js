@@ -1,5 +1,5 @@
 
-export const Menu = ({setOpenMenu}) => {
+const Menu = ({setOpenMenu}) => {
     return (
         <div className="menu">
             <div className="interior">
@@ -12,3 +12,4 @@ export const Menu = ({setOpenMenu}) => {
         </div>
     )
 }
+export default Menu

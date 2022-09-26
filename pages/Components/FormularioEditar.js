@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const FormularioEditar = ({elemento, tipo, setMuestraForm}) => {
+const FormularioEditar = ({elemento, tipo, setMuestraForm}) => {
     const [nombre, setNombre] = useState(elemento.nombre)
     const [cantidad, setCantidad] = useState(elemento.cantidad)
     return (
@@ -14,3 +14,4 @@ export const FormularioEditar = ({elemento, tipo, setMuestraForm}) => {
         </div>
     )
 }
+export default FormularioEditar;

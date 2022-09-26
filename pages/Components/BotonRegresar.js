@@ -1,4 +1,4 @@
-export const BotonRegresar = ({ href }) => {
+const BotonRegresar = ({ href }) => {
     return (
         <a href={String(href)} className="botonRegresar">
             <button > 
@@ -7,3 +7,4 @@ export const BotonRegresar = ({ href }) => {
         </a>
     )
 }
+export default BotonRegresar;

@@ -1,4 +1,4 @@
-export const ListaElementos = ({lista, handleEditar}) => {
+const ListaElementos = ({lista, handleEditar}) => {
     return (
         <div className="seccionElementosLista">
         {lista.map( elemento =>
@@ -14,3 +14,4 @@ export const ListaElementos = ({lista, handleEditar}) => {
     </div>
     )
 }
+export default ListaElementos;

@@ -1,4 +1,4 @@
-export const FormularioAniadir = ({setMuestraForm}) => {
+const FormularioAniadir = ({setMuestraForm}) => {
     return (
         <div className="formularioAniadir">
             <div className="exterior" onClick={()=>setMuestraForm(false)}></div>
@@ -10,3 +10,4 @@ export const FormularioAniadir = ({setMuestraForm}) => {
         </div>
     )
 }
+export default FormularioAniadir;

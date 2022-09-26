@@ -1,4 +1,4 @@
-export const Modal  = ({children, setOpenModal}) => {
+const Modal  = ({children, setOpenModal}) => {
     return (
         <div className="modal" >
             <div className="modalExterior" onClick={()=> setOpenModal(false)}></div>
@@ -6,3 +6,4 @@ export const Modal  = ({children, setOpenModal}) => {
         </div>
     )
 }
+export default Modal;
