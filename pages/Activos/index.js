@@ -12,7 +12,7 @@ const ActivosPage = () => {
     const [muestraFormEditar, setMuestraFormEditar] = useState(false);
     const [openModal, setOpenModal] = useState(false);
     const [mensajeModal, setMensajeModal] = useState('');
-    const [dataElementoEditar, setDataElementoEditar] = useState({});
+    const [dataElementoEditar, setDataElementoEditar] = useState({nombre:'', cantidad:0});
     const [activos, setActivos] = useState([]);
     const [totalActivos, setTotalActivos] = useState(552.00);
     useEffect(()=>{

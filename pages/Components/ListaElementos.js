@@ -1,7 +1,10 @@
+import { useState } from "react";
+
 const ListaElementos = ({lista, handleEditar}) => {
+    const [data, setData] = useState(lista)
     return (
         <div className="seccionElementosLista">
-        {lista.map( elemento =>
+        {data.map( elemento =>
             <div className="elementoLista" key={elemento.key}>
                 <div className="nombre">{elemento.nombre}</div>
                 <div className="cantidad">$<b>{elemento.cantidad}</b></div>
