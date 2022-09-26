@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react"
 
 const ListaElementos = ({lista, handleEditar}) => {
-    const [data, setData] = useState(lista)
+    console.log(lista);
+    const [data, setData] = useState([]);
+    useEffect(()=>{
+        setData(lista);
+    },[lista]);
     return (
         <div className="seccionElementosLista">
         {data.map( elemento =>

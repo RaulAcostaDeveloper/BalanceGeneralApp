@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const FormularioEditar = ({elemento, tipo, setMuestraForm}) => {
-    const [nombre, setNombre] = useState(elemento.nombre)
-    const [cantidad, setCantidad] = useState(elemento.cantidad)
+    const [nombre, setNombre] = useState('')
+    const [cantidad, setCantidad] = useState(0)
+    useEffect(()=>{
+        setNombre(elemento.nombre);
+        setCantidad(elemento.cantidad);
+    },[]);
     return (
         <div className="formularioAniadir">
             <div className="exterior" onClick={()=>setMuestraForm(false)}></div>

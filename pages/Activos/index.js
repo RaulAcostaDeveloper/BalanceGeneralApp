@@ -13,26 +13,24 @@ const ActivosPage = () => {
     const [openModal, setOpenModal] = useState(false);
     const [mensajeModal, setMensajeModal] = useState('');
     const [dataElementoEditar, setDataElementoEditar] = useState({nombre:'', cantidad:0});
-    const [activos, setActivos] = useState([]);
+    const [activos, setActivos] = useState([]); //nombre 20 length cantidad 8 length
     const [totalActivos, setTotalActivos] = useState(552.00);
+    const handleOpenEditar = (elemento) => {
+        setDataElementoEditar(elemento); //Para el form
+        setMuestraFormEditar(true);
+    }
     useEffect(()=>{
-        setActivos([ //nombre 20 length cantidad 8 length
-            { nombre: "Mi activo wqdin qwo", cantidad: 10000000, key:1 },
-            { nombre: "Mi activo wqdin qwo", cantidad: 2322, key:2 },
-            { nombre: "Mi activo", cantidad: 2322, key:3 },
-            { nombre: "Mi activo", cantidad: 2322, key:4 },
-            { nombre: "Mi activo", cantidad: 2322, key:5 },
-            { nombre: "Mi activo", cantidad: 2322, key:6 },
-            { nombre: "Mi activo", cantidad: 2322, key:7 },
-            { nombre: "Mi activo", cantidad: 2322, key:8 },
+        setActivos([//nombre 20 length cantidad 8 length
+        { nombre: "Mi activo wqdin qwo", cantidad: 10000000, key:1 },
+        { nombre: "Mi activo wqdin qwo", cantidad: 2322, key:2 },
+        { nombre: "Mi activo", cantidad: 2322, key:3 },
+        { nombre: "Mi activo", cantidad: 2322, key:4 },
+        { nombre: "Mi activo", cantidad: 2322, key:5 },
+        { nombre: "Mi activo", cantidad: 2322, key:6 },
+        { nombre: "Mi activo", cantidad: 2322, key:7 },
+        { nombre: "Mi activo", cantidad: 2322, key:8 },
         ])
     },[])
-
-    const handleOpenEditar = (elemento) => {
-        setMuestraFormEditar(true);
-        setDataElementoEditar(elemento); //Para el form
-    }
-
     return (
         <div>
             <Header>Activos</Header>
