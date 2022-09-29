@@ -7,31 +7,31 @@ import FormularioEditar from "../Components/FormularioEditar";
 import ListaElementos from "../Components/ListaElementos";
 import ResultadoCapital from "../Components/ResultadoCapital";
 
-const ActivosPage = () => {
+const PasivosPage = () => {
     const [muestraForm, setMuestraForm] = useState(false);
     const [muestraFormEditar, setMuestraFormEditar] = useState(false);
     const [dataElementoEditar, setDataElementoEditar] = useState({});
-    const [activos, setActivos] = useState([]); //nombre 20 length cantidad 8 length
+    const [pasivos, setPasivos] = useState([]); //nombre 20 length cantidad 8 length
     const [total, setTotal] = useState(0);
     const [contadorLista, setContadorLista] = useState(0);
     
     useEffect(()=>{//Traer de local storage
         if (typeof window !== 'undefined') {
             // localStorage.clear(); // <--------------------------------------------------------
-            let items = JSON.parse(localStorage.getItem('activosBalanceGeneralApp'));
+            let items = JSON.parse(localStorage.getItem('pasivosBalanceGeneralApp'));
             if (items) {
-                setActivos(items.activos);
+                setPasivos(items.pasivos);
                 setContadorLista(items.contadorLista);
             }
         }
     },[]);
 
-    const handleAniadirElemento = (activo) => {//Añade elemento
-        setActivos(activos.concat(activo));
+    const handleAniadirElemento = (pasivo) => {//Añade elemento
+        setPasivos(pasivos.concat(pasivo));
         setContadorLista(++contadorLista);
         if (typeof window !== 'undefined') {
-            localStorage.setItem('activosBalanceGeneralApp', JSON.stringify({
-                activos:activos.concat(activo),
+            localStorage.setItem('pasivosBalanceGeneralApp', JSON.stringify({
+                pasivos:pasivos.concat(pasivo),
                 contadorLista:++contadorLista,
             }))
         }
@@ -42,7 +42,7 @@ const ActivosPage = () => {
         setMuestraFormEditar(true);
     }
     const handleEditarElemento = (elemento)=>{
-        let nuevaLista = activos.map( entidad =>{
+        let nuevaLista = pasivos.map( entidad =>{
             if (entidad.key === elemento.key) {
                 return {
                     nombre: elemento.nombre,
@@ -53,17 +53,17 @@ const ActivosPage = () => {
                 return entidad;
             }
         });
-        setActivos(nuevaLista);
+        setPasivos(nuevaLista);
         if (typeof window !== 'undefined') {
-            localStorage.setItem('activosBalanceGeneralApp', JSON.stringify({
-                activos: nuevaLista,
+            localStorage.setItem('pasivosBalanceGeneralApp', JSON.stringify({
+                pasivos: nuevaLista,
                 contadorLista,
             }))
         }
     }
 
     const handleEliminarElemento = (elemento) => {
-        let nuevaLista = activos.map(entidad => {
+        let nuevaLista = pasivos.map(entidad => {
             return entidad;
         });
         for (let index = 0; index < nuevaLista.length; index++) {
@@ -71,40 +71,39 @@ const ActivosPage = () => {
                 nuevaLista.splice(index, 1)
             }
         }
-        setActivos(nuevaLista);
+        setPasivos(nuevaLista);
         if (typeof window !== 'undefined') {
-            localStorage.setItem('activosBalanceGeneralApp', JSON.stringify({
-                activos: nuevaLista,
+            localStorage.setItem('pasivosBalanceGeneralApp', JSON.stringify({
+                pasivos: nuevaLista,
                 contadorLista,
             }));
         }
     }
 
     useEffect(()=>{//Calcula total
-        let totalTemp = activos.map(item => item.cantidad).reduce((prev,curr) => Number(prev) + Number(curr), 0)
-        if (activos.length>=0) {
+        let totalTemp = pasivos.map(item => item.cantidad).reduce((prev,curr) => Number(prev) + Number(curr), 0)
+        if (pasivos.length>=0) {
             setTotal(totalTemp);
         } else {
             setTotal(0);
         }
         if (typeof window !== 'undefined') {
-            localStorage.setItem('activosTotal', JSON.stringify({
+            localStorage.setItem('pasivosTotal', JSON.stringify({
                 total: totalTemp,
-            }));
+            }))
         }
-    },[activos])
-
-    console.log('Render Activos');
+    },[pasivos])
+    
     return (
         <div>
-            <Header>Activos</Header>
+            <Header>Pasivos</Header>
             <BotonRegresar href="/"/>
-            <ResultadoCapital titulo = {"Total Activos"} cantidad = {total}/>
+            <ResultadoCapital titulo = {"Total Pasivos"} cantidad = {total}/>
             <BotonAniadir setMuestraForm = { setMuestraForm }/>
             {muestraForm && <FormularioAniadir setMuestraForm = { setMuestraForm } handleAniadirElemento = { handleAniadirElemento } contadorLista = {contadorLista}/>}
-            <ListaElementos lista = {activos} handleEditar = { handleOpenEditar } handleEliminar = { handleEliminarElemento }/>
+            <ListaElementos lista = {pasivos} handleEditar = { handleOpenEditar } handleEliminar = { handleEliminarElemento }/>
             {muestraFormEditar && <FormularioEditar setMuestraForm = { setMuestraFormEditar } elemento = { dataElementoEditar } handleEditarElemento = { handleEditarElemento }/>}
         </div>
     )
 }
-export default ActivosPage;
+export default PasivosPage;

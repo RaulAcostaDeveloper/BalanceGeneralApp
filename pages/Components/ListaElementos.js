@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
-const ListaElementos = ({lista, handleEditar}) => {
-    console.log(lista);
+const ListaElementos = ({lista, handleEditar, handleEliminar}) => {
     const [data, setData] = useState([]);
     useEffect(()=>{
         setData(lista);
@@ -15,7 +14,7 @@ const ListaElementos = ({lista, handleEditar}) => {
                 <button className="edit"  onClick={ () => handleEditar(elemento) } >
                     <img src="/edit.png"/>
                 </button>
-                <button className="delete"> <img src="/delete.png"/></button>
+                <button className="delete" onClick={()=>handleEliminar(elemento)}> <img src="/delete.png"/></button>
             </div>
         )}
     </div>
