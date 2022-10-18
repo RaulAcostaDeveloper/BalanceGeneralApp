@@ -6,12 +6,14 @@ const FormularioEditar = ({elemento, handleEditarElemento, setMuestraForm}) => {
     const [cantidad, setCantidad] = useState(0);
     const [openModal, setOpenModal] = useState(false);
     const [mensajeModal, setMensajeModal] = useState('');
+
     useEffect(()=>{
         setNombre(elemento.nombre);
         setCantidad(elemento.cantidad);
     },[elemento]);
 
     const tryEditar =()=>{
+        // Muestra el modal
         if (nombre.length<=0) {
             setOpenModal(true);
             setMensajeModal('Escribe el nombre');
@@ -50,11 +52,17 @@ const FormularioEditar = ({elemento, handleEditarElemento, setMuestraForm}) => {
             <div className="formularioAniadir">
                 <div className="exterior" onClick={()=>setMuestraForm(false)}></div>
                 <div className="interior">
-                        <input value={nombre} onChange={e=>setNombre(e.target.value)} type={"text"} placeholder="Nombre activo"/>
-                        <input value={cantidad} onChange={e=>setCantidad(e.target.value)} type={"number"} placeholder="Cantidad"/>
-                        <button onClick={()=>{
-                            tryEditar()
-                        }}>Editar</button>
+                        <input 
+                            value={nombre} 
+                            onChange={e=>setNombre(e.target.value)} 
+                            type={"text"} placeholder="Nombre activo"
+                        />
+                        <input 
+                            value={cantidad} 
+                            onChange={e=>setCantidad(e.target.value)} 
+                            type={"number"} placeholder="Cantidad"
+                        />
+                        <button onClick={()=>{ tryEditar() }}>Editar</button>
                 </div>
             </div>
             {openModal&& <Modal setOpenModal = { setOpenModal }>{mensajeModal}</Modal>}

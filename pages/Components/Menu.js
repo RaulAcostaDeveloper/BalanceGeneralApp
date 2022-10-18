@@ -1,4 +1,3 @@
-
 const Menu = ({setOpenMenu}) => {
     return (
         <div className="menu">
@@ -7,7 +6,6 @@ const Menu = ({setOpenMenu}) => {
                 <div>Contact</div>
             </div>
             <div className="exterior" onClick={()=> setOpenMenu(false)}>
-
             </div>
         </div>
     )

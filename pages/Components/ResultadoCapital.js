@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const ResultadoCapital = ({titulo, cantidad}) => {
     return (
         <div className="resultadoCapital">

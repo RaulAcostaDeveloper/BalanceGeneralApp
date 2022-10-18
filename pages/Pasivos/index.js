@@ -11,7 +11,7 @@ const PasivosPage = () => {
     const [muestraForm, setMuestraForm] = useState(false);
     const [muestraFormEditar, setMuestraFormEditar] = useState(false);
     const [dataElementoEditar, setDataElementoEditar] = useState({});
-    const [pasivos, setPasivos] = useState([]); //nombre 20 length cantidad 8 length
+    const [pasivos, setPasivos] = useState([]); //nombre 20 length, cantidad 8 length
     const [total, setTotal] = useState(0);
     const [contadorLista, setContadorLista] = useState(0);
     
@@ -41,6 +41,7 @@ const PasivosPage = () => {
         setDataElementoEditar(elemento); //data para el form
         setMuestraFormEditar(true);
     }
+
     const handleEditarElemento = (elemento)=>{
         let nuevaLista = pasivos.map( entidad =>{
             if (entidad.key === elemento.key) {
@@ -100,9 +101,24 @@ const PasivosPage = () => {
             <BotonRegresar href="/"/>
             <ResultadoCapital titulo = {"Total Pasivos"} cantidad = {total}/>
             <BotonAniadir setMuestraForm = { setMuestraForm }/>
-            {muestraForm && <FormularioAniadir setMuestraForm = { setMuestraForm } handleAniadirElemento = { handleAniadirElemento } contadorLista = {contadorLista}/>}
-            <ListaElementos lista = {pasivos} handleEditar = { handleOpenEditar } handleEliminar = { handleEliminarElemento }/>
-            {muestraFormEditar && <FormularioEditar setMuestraForm = { setMuestraFormEditar } elemento = { dataElementoEditar } handleEditarElemento = { handleEditarElemento }/>}
+            { muestraForm && 
+                <FormularioAniadir 
+                    setMuestraForm = { setMuestraForm } 
+                    handleAniadirElemento = { handleAniadirElemento } 
+                    contadorLista = {contadorLista}
+                />
+            }
+            <ListaElementos 
+                lista = {pasivos} 
+                handleEditar = { handleOpenEditar } 
+                handleEliminar = { handleEliminarElemento }
+            />
+            { muestraFormEditar && 
+                <FormularioEditar 
+                    setMuestraForm = { setMuestraFormEditar } 
+                    elemento = { dataElementoEditar } 
+                    handleEditarElemento = { handleEditarElemento }
+                />}
         </div>
     )
 }

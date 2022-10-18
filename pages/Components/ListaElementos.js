@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 
 const ListaElementos = ({lista, handleEditar, handleEliminar}) => {
     const [data, setData] = useState([]);
+    
     useEffect(()=>{
         setData(lista);
     },[lista]);
+
     return (
         <div className="seccionElementosLista">
         {data.map( elemento =>
@@ -14,7 +16,9 @@ const ListaElementos = ({lista, handleEditar, handleEliminar}) => {
                 <button className="edit"  onClick={ () => handleEditar(elemento) } >
                     <img src="/edit.png"/>
                 </button>
-                <button className="delete" onClick={()=>handleEliminar(elemento)}> <img src="/delete.png"/></button>
+                <button className="delete" onClick={()=>handleEliminar(elemento)}> 
+                    <img src="/delete.png"/>
+                </button>
             </div>
         )}
     </div>

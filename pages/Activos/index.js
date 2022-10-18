@@ -11,7 +11,7 @@ const ActivosPage = () => {
     const [muestraForm, setMuestraForm] = useState(false);
     const [muestraFormEditar, setMuestraFormEditar] = useState(false);
     const [dataElementoEditar, setDataElementoEditar] = useState({});
-    const [activos, setActivos] = useState([]); //nombre 20 length cantidad 8 length
+    const [activos, setActivos] = useState([]); //nombre 20 length, cantidad 8 length
     const [total, setTotal] = useState(0);
     const [contadorLista, setContadorLista] = useState(0);
     
@@ -41,6 +41,7 @@ const ActivosPage = () => {
         setDataElementoEditar(elemento); //data para el form
         setMuestraFormEditar(true);
     }
+
     const handleEditarElemento = (elemento)=>{
         let nuevaLista = activos.map( entidad =>{
             if (entidad.key === elemento.key) {
@@ -94,16 +95,30 @@ const ActivosPage = () => {
         }
     },[activos])
 
-    console.log('Render Activos');
     return (
         <div>
             <Header>Activos</Header>
             <BotonRegresar href="/"/>
             <ResultadoCapital titulo = {"Total Activos"} cantidad = {total}/>
             <BotonAniadir setMuestraForm = { setMuestraForm }/>
-            {muestraForm && <FormularioAniadir setMuestraForm = { setMuestraForm } handleAniadirElemento = { handleAniadirElemento } contadorLista = {contadorLista}/>}
-            <ListaElementos lista = {activos} handleEditar = { handleOpenEditar } handleEliminar = { handleEliminarElemento }/>
-            {muestraFormEditar && <FormularioEditar setMuestraForm = { setMuestraFormEditar } elemento = { dataElementoEditar } handleEditarElemento = { handleEditarElemento }/>}
+            { muestraForm && 
+                <FormularioAniadir 
+                    setMuestraForm = { setMuestraForm } 
+                    handleAniadirElemento = { handleAniadirElemento } 
+                    contadorLista = {contadorLista}
+                />
+            }
+            <ListaElementos 
+                lista = {activos} 
+                handleEditar = { handleOpenEditar } 
+                handleEliminar = { handleEliminarElemento }
+            />
+            { muestraFormEditar && 
+                <FormularioEditar 
+                    setMuestraForm = { setMuestraFormEditar } 
+                    elemento = { dataElementoEditar } 
+                    handleEditarElemento = { handleEditarElemento }
+                />}
         </div>
     )
 }
